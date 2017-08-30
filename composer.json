@@ -1,0 +1,28 @@
+{
+    "name": "tttptd/laravel-cloudpayments",
+    "description": "CloudPayments PHP Client Library (cloudpayments/cloud-payments-client) для Laravel",
+    "type": "library",
+    "require": {
+        "php": "^7.0",
+        "cloudpayments/cloud-payments-client": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:cloudpayments/cloudpayments-php-client.git"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tttptd\\LaravelCloudpayments\\": "./src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yu Shi",
+            "email": "mynsa04@ya.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
