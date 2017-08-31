@@ -2,8 +2,8 @@
 
 namespace Tttptd\LaravelCloudpayments;
 
-use Illuminate\Support\ServiceProvider;
 use CloudPayments\Manager;
+use Illuminate\Support\ServiceProvider;
 
 class CloudpaymentsServiceProvider extends ServiceProvider
 {
@@ -20,7 +20,7 @@ class CloudpaymentsServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../resources/config/config.php' => config_path('cloudpayments.php')
+            __DIR__ . '/../resources/config/config.php' => config_path('cloudpayments.php'),
         ], 'config');
     }
 
@@ -33,11 +33,9 @@ class CloudpaymentsServiceProvider extends ServiceProvider
             __DIR__ . '/../resources/config/config.php', 'cloudpayments'
         );
 
-        /** @noinspection PhpUndefinedMethodInspection */
-        $this->app->singleton(Manager::class, function ($app) {
-            return new Manager(
-                config('cloudpayments.publicId'),
-                config('cloudpayments.apiPassword')
+        $this->app->singleton(Manager::class, function() {
+            return new CloudpaymentsManager(
+                config('cloudpayments')
             );
         });
     }
@@ -48,7 +46,7 @@ class CloudpaymentsServiceProvider extends ServiceProvider
     public function provides():array
     {
         return [
-            Manager::class
+            Manager::class,
         ];
     }
 
