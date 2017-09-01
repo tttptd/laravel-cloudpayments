@@ -4,12 +4,12 @@
     "type": "library",
     "require": {
         "php": "^7.0",
-        "cloudpayments/cloud-payments-client": "dev-master"
+        "tttptd/cloud-payments-client": "dev-master"
     },
     "repositories": [
         {
             "type": "git",
-            "url": "git@github.com:cloudpayments/cloudpayments-php-client.git"
+            "url": "git@github.com:tttptd/cloudpayments-php-client.git"
         }
     ],
     "autoload": {
