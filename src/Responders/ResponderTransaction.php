@@ -14,15 +14,21 @@ class ResponderTransaction extends ResponderContract
      */
     private $transaction;
 
+    /**
+     * ResponderTransaction constructor.
+     * @param Transaction $transaction
+     */
     public function __construct(Transaction $transaction)
     {
         $this->transaction = $transaction;
     }
 
+    /**
+     * @return array
+     */
     public function respond():array
     {
         $transaction = $this->transaction;
-        dump($transaction);
         $reflect = new ReflectionClass($transaction);
         $props = array_reduce(
             $reflect->getProperties(ReflectionProperty::IS_PROTECTED),
